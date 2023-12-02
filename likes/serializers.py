@@ -15,10 +15,10 @@ class LikeSerializer(serializers.ModelSerializer):
         fields = ['id', 'created_at', 'owner', 'post']
 
     def create(self, validated_data):
-    """
-    Prevent double duplication of likes
-    stops the integrity error page loading
-    """
+        """
+        Prevent double duplication of likes
+        stops the integrity error page loading
+        """
         try:
             return super().create(validated_data)
         except IntegrityError:
