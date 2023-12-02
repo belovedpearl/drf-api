@@ -2,6 +2,6 @@ from django.urls import path
 from followers import views
 
 urlpatterns = [
-    path('followers/', views.FollowerList.as_view()),
-    #path('posts/<int:pk>/', views.PostDetail.as_view()),
+    path('followers/', views.FollowersListView.as_view()),
+    path('followers/<int:pk>/', views.FollowerDetail.as_view()),
 ]
