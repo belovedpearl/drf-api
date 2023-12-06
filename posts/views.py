@@ -9,6 +9,7 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from drf_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer
 
@@ -28,10 +29,22 @@ class PostList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend
+    ]
+    filterset_fields = [
+        #user's feed
+        'owner__followed__owner__profile',
+        #user's liked post
+        'likes__owner__profile',
+        #posts
+        'owner__profile',
+        
+
     ]
     search_fields = [
         'owner__username',
         'title',
+        'filterset_fields'
     ]
     ordering_fields = [
         'likes_count',
