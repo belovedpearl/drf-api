@@ -67,7 +67,8 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-belovedpearl-drfapi-6pmup96700h.ws-eu107.gitpod.io',
     'localhost',
-    'mydrfapi.herokuapp.com'
+    'mydrfapi.herokuapp.com',
+    'mydrfapi-4796c8968109.herokuapp.com'
     ]
 
 
